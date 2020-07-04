@@ -1,0 +1,20 @@
+     docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always --name registry registry:latest
+
+
+{
+	"registry-mirrors": [
+		"https://hub-mirror.c.163.com",
+		"https://mirror.baidubce.com"
+	],
+  "insecure-registries": ["192.168.31.85:5000"] 
+}
+
+
+systemctl restart docker 
+
+通过docker tag命令来实现命名
+ docker tag jdk_8u191:20190307 192.168.179.128:5000/jdk_8u191:20190307
+ 上传jdk镜像到Registry仓库: docker push 192.168.179.128:5000/jdk_8u191:20190307
+push成功之后，查看本地/opt/registry目录下已经有了刚推送上来的registry镜像，也可以在浏览器中输入http://ip_add:5000/v2/_catalog
+
+至此，我们的Registry私有仓库搭建完成，如果在今后中要使用，可以使用命令：docker pull ip_add:5000/jdk_8u191:20190307 拉

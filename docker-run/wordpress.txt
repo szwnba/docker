@@ -1,0 +1,5 @@
+docker run -d --privileged=true --name OLDMysql -v /data/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -p 33306:3306 biarms/mysql:latest
+docker run -d --name OLDwp -e WORDPRESS_DB_HOST=mysql -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=123456 -e WORDPRESS_DB_NAME=wordpress -p 1080:80 --link OLDMysql:mysql wordpress
+
+firewall-cmd --zone=public --add-port=8000/tcp --permanent
+firewall-cmd --reload #жиди
