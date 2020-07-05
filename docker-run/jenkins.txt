@@ -5,3 +5,13 @@ docker pull comdata456/jenkins-raspberry
    docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 comdata456/jenkins-raspberry
 
    docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins4eval/jenkins
+   
+   
+   启动后修改地址：
+   <?xml version='1.1' encoding='UTF-8'?>
+<sites>
+  <site>
+    <id>default</id>
+    <url>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</url>
+  </site>
+</sites>
