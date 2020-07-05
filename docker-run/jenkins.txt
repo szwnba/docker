@@ -1,0 +1,7 @@
+docker pull comdata456/jenkins-raspberry
+		docker pull jenkins4eval/jenkins
+   
+   
+   docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 comdata456/jenkins-raspberry
+
+   docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 jenkins4eval/jenkins

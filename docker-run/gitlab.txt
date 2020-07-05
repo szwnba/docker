@@ -1,0 +1,14 @@
+docker pull ulm0/gitlab
+
+
+Run the image:
+
+docker run -d \
+--hostname gitlab.example.com \
+-p 443:443 -p 80:80 -p 22:22 \
+--name gitlab \
+--restart always \
+-v /srv/gitlab/config:/etc/gitlab \
+-v /srv/gitlab/logs:/var/log/gitlab \
+-v /srv/gitlab/data:/var/opt/gitlab \
+ulm0/gitlab
