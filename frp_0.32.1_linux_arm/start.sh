@@ -1,1 +1,1 @@
-./frpc -c ./frpc.ini
+./frpc -c ./frpc.ini &
